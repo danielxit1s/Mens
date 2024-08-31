@@ -3,39 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ImageLoader</title>
+    <title>Quadrado Preto</title>
     <style>
-        html, body {
-            overflow: hidden;
-            padding: 0;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            background-color: transparent;
-            height: 100%;
-            width: 100%;
+            background-color: white; /* Cor de fundo da página */
         }
-        
-        #dynamic-image {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .square {
+            width: 200px;
+            height: 200px;
+            background-color: black; /* Cor do quadrado */
         }
     </style>
 </head>
 <body>
-    <img id="dynamic-image" src="" alt="">
-
-    <script>
-        function getParameterByName(name) {
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-
-        var imageName = getParameterByName('image');
-        if (imageName) {
-            document.getElementById('dynamic-image').src = 'src/' + imageName + '.png';
-        }
-    </script>
+    <div class="square"></div>
 </body>
 </html>
