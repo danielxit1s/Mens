@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadrado Preto</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: white; /* Cor de fundo da página */
-        }
-        .square {
-            width: 200px;
-            height: 200px;
-            background-color: black; /* Cor do quadrado */
-        }
-    </style>
+    <title>Minha Interface</title>
 </head>
 <body>
-    <div class="square"></div>
+    <h1>Bem-vindo ao FiveM!</h1>
+    <button onclick="fecharUI()">Fechar UI</button>
+
+    <script>
+        function fecharUI() {
+            fetch('https://resource_name/fecharui', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            });
+        }
+    </script>
 </body>
 </html>
