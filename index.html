@@ -3,22 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Interface</title>
+    <title>Menu Aimbot</title>
+    <style>
+        body {
+            background-color: #1b1b1b;
+            color: #ececec;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 700px;
+            background-color: #2a2a2a;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #383838;
+        }
+
+        .menu-section {
+            width: 48%;
+        }
+
+        h2 {
+            color: #ffcc00;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            background-color: #383838;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #ffcc00;
+        }
+
+        input[type="checkbox"]:checked::before {
+            content: '✔';
+            color: #2a2a2a;
+            position: absolute;
+            top: 0;
+            left: 4px;
+            font-size: 14px;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 60%;
+            height: 6px;
+            background: #3a3a3a;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .slider:hover {
+            background: #4a4a4a;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #ffcc00;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease-in-out;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #ffcc00;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease-in-out;
+        }
+
+        select, input[type="text"] {
+            width: 60%;
+            padding: 6px;
+            background-color: #333;
+            color: #ececec;
+            border: 1px solid #444;
+            border-radius: 6px;
+            outline: none;
+            transition: border 0.3s ease-in-out;
+        }
+
+        select:hover, input[type="text"]:hover {
+            border-color: #ffcc00;
+        }
+
+        input[type="text"] {
+            text-align: right;
+        }
+
+        .menu-section label:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo ao FiveM!</h1>
-    <button onclick="fecharUI()">Fechar UI</button>
+    <div class="container">
+        <div class="menu-section">
+            <h2>Aim Assistance</h2>
+            <label><input type="checkbox"> Enable</label>
+            <label><input type="checkbox"> Prediction</label>
+            <label>Prediction percentage <input type="range" class="slider" min="0" max="1" step="0.001" value="0.873"></label>
+            <label>Aim Key: <input type="text" value="None"></label>
+            <label><input type="checkbox"> Triggerbot</label>
+            <label><input type="checkbox"> Magic Bullet</label>
+            <label><input type="checkbox"> Target Players</label>
+            <label><input type="checkbox"> Target Peds</label>
+            <label><input type="checkbox"> Target Deads</label>
+            <label>Aimbot Mode:
+                <select>
+                    <option>Raw</option>
+                </select>
+            </label>
+            <label>Aimbot Distance <input type="range" class="slider" min="0" max="1000" value="300"></label>
+        </div>
 
-    <script>
-        function fecharUI() {
-            fetch('https://resource_name/fecharui', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({})
-            });
-        }
-    </script>
+        <div class="menu-section">
+            <h2>Aim Settings</h2>
+            <label><input type="checkbox"> Field Of View Circle</label>
+            <label>Field Of View <input type="range" class="slider" min="0" max="180" value="25"></label>
+            <label>Smoothness <input type="range" class="slider" min="0" max="100" value="47"></label>
+            <label><input type="checkbox"> Target Visible</label>
+            <label><input type="checkbox"> Target Invisible</label>
+            <label>Aimbot Bone:
+                <select>
+                    <option>Head</option>
+                </select>
+            </label>
+        </div>
+    </div>
 </body>
 </html>
